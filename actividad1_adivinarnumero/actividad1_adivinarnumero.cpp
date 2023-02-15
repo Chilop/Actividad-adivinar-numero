@@ -7,52 +7,51 @@
 #include <iostream>
 using namespace std;
 
-int* numeroalmacenado;
-int randomnumber, numeroelegido, adivinacion, attempts = 0, forzarApagado = 0;
-int proceso = 0;
 
 int main()
 {
-	cout << "Voy a elegir un numero al azar entre el 1 y el 100" << endl << endl << "Vas a tratar de adivinar el numero *pulgar arriba*" << endl;
-	srand(time(NULL));
+	int randomnumber, numeroelegido, adivinacion, attempts = 0, forzarApagado = 0;
+	bool proceso = true;
+	srand((unsigned)time(NULL));
 	randomnumber = 1 + rand() % (101);
-	numeroalmacenado = &randomnumber;
-	numeroelegido = *numeroalmacenado;
-	cout << numeroelegido << endl;
+	cout << "Voy a elegir un numero al azar entre el 1 y el 100" << endl << endl << "Vas a tratar de adivinar el numero *pulgar arriba*" << endl;
 
-	do
+	while (proceso == false);
 	{
 		cout << "elige un numero" << endl;
 		cin >> adivinacion;
-		attempts++;
+		attempts = attempts + 1;
 
-		if (attempts >= 5)
+		if (adivinacion >= 1 && adivinacion <= 100)
 		{
-			cout << "El numero que elegi fue: " << numeroelegido << endl;
+			if (adivinacion > randomnumber)
+			{
+				cout << "El numero que buscas es MENOR que tu prediccion" << endl;
+			}
+			else if (adivinacion < randomnumber)
+			{
+				cout << "El numero que buscas es MAYOR que tu prediccion" << endl;
+			}
+			else if (attempts >= 5)
+			{
+				cout << "El numero que elegi fue: " << randomnumber << endl;
+			}
+			else
+			{
+				cout << "adivinaste el numero!" << endl;
+				proceso = true;
+			}
 		}
-		if (adivinacion > numeroelegido)
+		else
 		{
-			cout << "El numero que buscas es MENOR que tu prediccion" << endl;
+			cout << "Ingrese un numero dentro del rango de 1 y 100" << endl << "NO ME OBLIGUES A HACER ALGO QUE NO QUIERO" << endl << endl;
+			forzarApagado = forzarApagado + 1;
 		}
-		else if (adivinacion < numeroelegido)
-		{
-			cout << "El numero que buscas es MAYOR que tu prediccion" << endl;
-		}
-	} while (proceso == 0);
-	{
-		
-	{
-
-	} {
-		cout << "Ingrese un numero dentro del rango de 1 y 100" << endl << "NO ME OBLIGUES A HACER ALGO QUE NO QUIERO" << endl << endl;
-		forzarApagado++;
 		if (forzarApagado >= 5)
 		{
-			proceso = 1;
-
+			proceso = true;
 			cout << endl << endl << "Te lo adverti" << endl;
 		}
-		}
-	}
 
+	}
 }
