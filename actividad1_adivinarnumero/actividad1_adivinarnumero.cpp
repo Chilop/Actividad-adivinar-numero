@@ -23,7 +23,7 @@ int main()
 
 		case 1:
 	*/
-			cout << " Seleccionaste Adivinar numero random" << endl << endl;
+			// cout << " Seleccionaste Adivinar numero random" << endl << endl;
 
 			srand(time(0)); // srand es usado para generar otro numero aleatorio
 
@@ -43,10 +43,10 @@ int main()
 					intentosTontos++;
 				}
 				else if (numAdivinar < randomNumber) {
-					cout << " Too low. Guess again." << endl;
+					cout << " Tu numero es bajo. Sigue adivinando." << endl;
 				}
 				else if (numAdivinar > randomNumber) {
-					cout << " Too high. Guess again." << endl << endl;
+					cout << " Tu numero es alto. Sigue adivinando." << endl << endl;
 				}
 
 				if (attempts == 5) {
