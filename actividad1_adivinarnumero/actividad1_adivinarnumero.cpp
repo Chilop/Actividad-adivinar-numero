@@ -10,48 +10,72 @@ using namespace std;
 
 int main()
 {
-	int randomnumber, numeroelegido, adivinacion, attempts = 0, forzarApagado = 0;
-	bool proceso = true;
-	srand((unsigned)time(NULL));
-	randomnumber = 1 + rand() % (101);
-	cout << "Voy a elegir un numero al azar entre el 1 y el 100" << endl << endl << "Vas a tratar de adivinar el numero *pulgar arriba*" << endl;
-
-	while (proceso == false);
+	/*
+	int option = 0;
+	bool exit = false;
+	do
 	{
-		cout << "elige un numero" << endl;
-		cin >> adivinacion;
-		attempts = attempts + 1;
+		cout << endl << " Elige una de las actividades hechas en el semestre" << endl;
+		cout << " 1. Adivinar numero random" << endl << " 2. salir" << endl;
+		cin >> option;
+		switch (option)
+		{
 
-		if (adivinacion >= 1 && adivinacion <= 100)
-		{
-			if (adivinacion > randomnumber)
+		case 1:
+	*/
+			cout << " Seleccionaste Adivinar numero random" << endl << endl;
+
+			srand(time(0)); // srand es usado para generar otro numero aleatorio
+
+			int randomNumber = rand() % 100 + 1; // rand se usa para generar un numero aleatorio entre 1 y 100
+			int numAdivinar;
+			int attempts = 0;
+			int intentosTontos = 0;
+
+			do {
+				cout << " Adivina el numero entre 1 y 100: " << endl << endl;
+				cin >> numAdivinar;
+				attempts++;
+
+				if (numAdivinar < 1 || numAdivinar > 100)
+				{
+					cout << " porfavor inserta numeros entre 1 y 100" << endl << endl << "No me hagas hacer algo que no quiero" << endl << endl;
+					intentosTontos++;
+				}
+				else if (numAdivinar < randomNumber) {
+					cout << " Too low. Guess again." << endl;
+				}
+				else if (numAdivinar > randomNumber) {
+					cout << " Too high. Guess again." << endl << endl;
+				}
+
+				if (attempts == 5) {
+					cout << endl << " El numero a adivinar era: " << randomNumber << endl << endl;
+				}
+
+				if (intentosTontos == 3) // if de si el usuario pone otros numeros que no son, cierre automaticamente el programa
+				{
+					cout << "Te lo adverti, y ahora tendras que pagar las consecuencias" << endl << endl;
+					break;
+				}
+			} while (numAdivinar != randomNumber);
+			// el ciclo continua hasta que se adivine el numero random
+
+			if (numAdivinar == randomNumber) // este mensaje se muestra si el usuario le acerto al numero
 			{
-				cout << "El numero que buscas es MENOR que tu prediccion" << endl;
+				cout << " *aplausos* adivinaste el numero y aqui esta la cantidad de intentos que te tomo: " << attempts << " intentos." << endl;
 			}
-			else if (adivinacion < randomnumber)
-			{
-				cout << "El numero que buscas es MAYOR que tu prediccion" << endl;
-			}
-			else if (attempts >= 5)
-			{
-				cout << "El numero que elegi fue: " << randomnumber << endl;
-			}
-			else
-			{
-				cout << "adivinaste el numero!" << endl;
-				proceso = true;
-			}
-		}
-		else
-		{
-			cout << "Ingrese un numero dentro del rango de 1 y 100" << endl << "NO ME OBLIGUES A HACER ALGO QUE NO QUIERO" << endl << endl;
-			forzarApagado = forzarApagado + 1;
-		}
-		if (forzarApagado >= 5)
-		{
-			proceso = true;
-			cout << endl << endl << "Te lo adverti" << endl;
+/*
+			break;
+
+		case 2:
+			break;
+
+		default:
+			cout << " Porfavor elige una de las opciones " << endl; //para el futuro *añadir una imagen de gru apuntando con una pistola en puntos*	
 		}
 
-	}
+	} while (exit == true);
+*/
+	return 0;
 }
