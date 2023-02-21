@@ -48,7 +48,7 @@ int main()
 				else if (numAdivinar > randomNumber) {
 					cout << " Tu numero es alto. Sigue adivinando." << endl << endl;
 				}
-
+				// PARTE AGREGADA PARA EL RUBRO.......... DETECCION QUE TAN CERCA ESTAS DE ADIVINAR *SE DELIMITA A 10* 
 				if (numAdivinar - randomNumber <= 10 && numAdivinar - randomNumber >= -10) {
 					cout << "estas cerca. Sigue adivinando" << endl << endl;
 				}
