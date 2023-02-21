@@ -43,10 +43,14 @@ int main()
 					intentosTontos++;
 				}
 				else if (numAdivinar < randomNumber) {
-					cout << " Tu numero es bajo. Sigue adivinando." << endl;
+					cout << " Tu numero es bajo. Sigue adivinando." << endl << endl;
 				}
 				else if (numAdivinar > randomNumber) {
 					cout << " Tu numero es alto. Sigue adivinando." << endl << endl;
+				}
+
+				if (numAdivinar - randomNumber <= 10 && numAdivinar - randomNumber >= -10) {
+					cout << "estas cerca. Sigue adivinando" << endl << endl;
 				}
 
 				if (attempts == 5) {
